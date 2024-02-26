@@ -1,20 +1,16 @@
-import { Button, StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import LoginScreen from "./App/Screens/LogingScreen/Login";
 
 export default function App() {
+
+
+
+  
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "space-evenly",
-        width: "50%",
-        alignSelf: "center",
-        marginVertical: "10%",
-      }}
-    >
-      <Button
-        onPress={() => alert(JSON.stringify({ naem: "sdfs" }))}
-        title="getAccessToken"
-      />
+
+  <View style ={ styles.container}>
+    <LoginScreen/>
     </View>
   );
 }
