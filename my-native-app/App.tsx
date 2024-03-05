@@ -1,32 +1,46 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-
-import { NavigationContainer } from '@react-navigation/native';
-import LoginScreen from "./App/Screens/LogingScreen/Login";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./App/Screens/HomeScreen/Home";
-import SettingScreen from "./App/Screens/SettingsScreen/Settings";
 import ProfileScreen from "./App/Screens/ProfileScreen/Profile";
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import SettingScreen from "./App/Screens/SettingsScreen/Settings";
+//import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
-
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
-
 export default function App() {
-
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-     
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Settings" component={SettingScreen} />
-    </Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName: any;
+
+            if (route.name === "Home") {
+              iconName = "home";
+            } else if (route.name === "Settings") {
+              iconName = "settings-outline";
+            } else if (route.name === "Profile") {
+              iconName = "person-circle-outline";
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: "blue",
+          tabBarInactiveTintColor: "gray",
+        })}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Settings" component={SettingScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
-  
   );
 }
 
