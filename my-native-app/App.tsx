@@ -9,6 +9,7 @@ import SettingScreen from "./App/Screens/SettingsScreen/Settings";
 //import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { Ionicons } from "@expo/vector-icons";
+import HeaderLeftScreen from "./App/Screens/Common/HeaderLeft";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,12 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          headerShown: false,
+          headerLeft: () => <HeaderLeftScreen />,
+          headerStyle: {
+            // backgroundColor: "yellow",
+          },
+          headerTitle: "",
+          headerShown: true,
           tabBarIcon: ({ focused, color, size }) => {
             let iconName: any;
 
@@ -35,7 +41,13 @@ export default function App() {
           tabBarInactiveTintColor: "gray",
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            title: "",
+          }}
+        />
 
         <Tab.Screen name="Profile" component={ProfileScreen} />
         <Tab.Screen name="Settings" component={SettingScreen} />
