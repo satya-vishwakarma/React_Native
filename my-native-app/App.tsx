@@ -2,7 +2,6 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import BottomTabNavigation from "./navigation/BottomTabNavigation";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,9 +30,10 @@ export default function App() {
   }
 
   return (
+    <NavigatorC
     <View style={styles.container}>
       <Text style={styles.textStyle}> helddd</Text>
-      <BottomTabNavigation />
+     
     </View>
   );
 }
