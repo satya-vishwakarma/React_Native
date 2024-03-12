@@ -10,6 +10,7 @@ import SettingScreen from "./App/Screens/SettingsScreen/Settings";
 
 import { Ionicons } from "@expo/vector-icons";
 import HeaderLeftScreen from "./App/Screens/Common/HeaderLeft";
+import HeaderRightScreen from "./App/Screens/Common/HeaderRight";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerLeft: () => <HeaderLeftScreen />,
+          headerRight: () => <HeaderRightScreen />,
           headerStyle: {
             // backgroundColor: "yellow",
           },
